@@ -157,6 +157,42 @@
   .screen-card { text-align: center; }
   .screen-card figcaption { margin-top: 18px; font-size: .92rem; color: var(--ink-3); font-weight: 500; }
 
+  /* Demo video */
+  .demo { background: var(--ink); }
+  .demo .section-head { color: #fff; }
+  .demo h2 { color: #fff; }
+  .demo .section-head p { color: #b8bcc2; }
+  .video-frame {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.1);
+    background: #000;
+  }
+  .video-frame video { display: block; width: 100%; height: auto; }
+
+  /* Apple Watch */
+  .watch-section { background: var(--bg-2); }
+  .watch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .watch-card { text-align: center; }
+  .watch-frame {
+    position: relative;
+    background: #14161a; border-radius: 22%; padding: 8%;
+    box-shadow: 0 18px 40px -14px rgba(20,22,26,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+    margin: 0 auto; max-width: 220px;
+  }
+  .watch-frame::after {
+    content: ""; position: absolute; right: -4px; top: 32%;
+    width: 5px; height: 18%; border-radius: 3px; background: #2c2f34;
+  }
+  .watch-frame img { border-radius: 18%; }
+  .watch-card figcaption { margin-top: 14px; font-size: .9rem; color: var(--ink-3); font-weight: 500; }
+  .pill {
+    display: inline-block; margin-left: 10px; vertical-align: middle;
+    background: var(--red-soft); color: var(--red-dark);
+    font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  @media (max-width: 860px) { .watch-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; } }
+
   /* Tech */
   .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .tech {
@@ -194,7 +230,9 @@
     </a>
     <div class="nav-links">
       <a href="#how">How it works</a>
+      <a href="#demo">Demo</a>
       <a href="#features">Features</a>
+      <a href="#watch">Apple Watch</a>
       <a href="#tech">Technology</a>
       <a class="nav-cta" href="https://apps.apple.com/us/app/aedrone/id6761315735">Download</a>
     </div>
@@ -268,6 +306,22 @@
   </div>
 </section>
 
+<section id="demo" class="demo">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker">Demo</div>
+      <h2>See a full dispatch, end to end</h2>
+      <p>A live run-through of AEDrone: a bystander places an emergency request, the dispatcher assigns the nearest drone, and both screens track the delivery in real time.</p>
+    </div>
+    <div class="video-frame">
+      <video controls preload="metadata" poster="demo-poster.jpg" playsinline>
+        <source src="demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
 <section id="features" class="features">
   <div class="wrap">
     <div class="section-head center">
@@ -300,6 +354,34 @@
       <figure class="screen-card">
         <div class="phone"><img src="screen-request.png" alt="Active emergency request with pending status and cancel option" loading="lazy" width="1284" height="2778"></div>
         <figcaption>Active request — help is on the way</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="watch" class="watch-section">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker">Apple Watch</div>
+      <h2>Help from your wrist<span class="pill">Companion app</span></h2>
+      <p>The AEDrone watch companion keeps the emergency button on your wrist and monitors your heart rate. If readings stay outside your set threshold and you don't respond to a check-in, it can request an AED for you automatically.</p>
+    </div>
+    <div class="watch-grid">
+      <figure class="watch-card">
+        <div class="watch-frame"><img src="watch-monitoring.png" alt="Watch screen showing heart rate 69 BPM, normal, with Emergency AED button" loading="lazy"></div>
+        <figcaption>Heart-rate monitoring</figcaption>
+      </figure>
+      <figure class="watch-card">
+        <div class="watch-frame"><img src="watch-countdown.png" alt="Watch check-in screen asking Are you okay? with a countdown and I am OK button" loading="lazy"></div>
+        <figcaption>Check-in before requesting</figcaption>
+      </figure>
+      <figure class="watch-card">
+        <div class="watch-frame"><img src="watch-dispatched.png" alt="Watch screen showing drone dispatched, 120 meters away" loading="lazy"></div>
+        <figcaption>Live dispatch tracking</figcaption>
+      </figure>
+      <figure class="watch-card">
+        <div class="watch-frame"><img src="watch-delivered.png" alt="Watch screen confirming AED delivered at your location" loading="lazy"></div>
+        <figcaption>Delivery confirmation</figcaption>
       </figure>
     </div>
   </div>
